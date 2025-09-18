@@ -1,12 +1,11 @@
-// import authentication from "../../assets/images/register/authentication.svg";
 import styles from "../../styles/authentication.module.css";
-import register from "../../assets/images/register/register.svg";
-import register1 from "../../assets/images/register/register1.svg";
-import register2 from "../../assets/images/register/register2.svg";
-import register3 from "../../assets/images/register/register3.svg";
-import register4 from "../../assets/images/register/register4.svg";
-import register5 from "../../assets/images/register/register5.svg";
-import register6 from "../../assets/images/register/register6.svg";
+import register from "../../assets/images/authentication/register/register.svg";
+import register1 from "../../assets/images/authentication/register/register1.svg";
+import register2 from "../../assets/images/authentication/register/register2.svg";
+import register3 from "../../assets/images/authentication/register/register3.svg";
+import register4 from "../../assets/images/authentication/register/register4.svg";
+import register5 from "../../assets/images/authentication/register/register5.svg";
+import register6 from "../../assets/images/authentication/register/register6.svg";
 
 function Register() {
   return (

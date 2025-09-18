@@ -1,5 +1,5 @@
 body {
-  background-image: url(../assets/images/register/authentication.svg);
+  background-image: url(../assets/images/authentication/authentication.svg);
   background-color: var(--secondaryLightColor);
   height: 100vh;
   width: 100vw;
@@ -31,6 +31,12 @@ h1 {
   display: block;
   position: absolute;
   bottom: 0;
+}
+
+.sideImageRight img {
+  right: 0;
+  bottom: 0;
+  width: 70%;
 }
 
 .formInput {
@@ -74,7 +80,11 @@ h1 {
 }
 
 p {
-  margin: 24px 0px;
+  margin: 32px 0px;
+}
+
+p a {
+  margin: 0 5px;
 }
 
 @media (max-width: 920px) {
