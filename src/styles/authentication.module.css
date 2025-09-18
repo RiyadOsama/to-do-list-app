@@ -1,21 +1,20 @@
-body {
+.body {
   background-image: url(../assets/images/authentication/authentication.svg);
-  background-color: var(--secondaryLightColor);
+  background-color: var(--secondaryColor);
+  background-size: contain;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-h1 {
-  color: var(--textLightColor);
-}
-
 .content {
-  min-width: 900px;
+  width: 90%;
+  max-width: 900px;
   height: auto;
-  background-color: var(--backgroundLightColor);
+  background-color: var(--backgroundColor);
   border-radius: 16px;
   padding: 32px;
 }
@@ -26,7 +25,7 @@ h1 {
 }
 
 .sideImage img {
-  width: 50%;
+  width: 90%;
   height: auto;
   display: block;
   position: absolute;
@@ -36,11 +35,11 @@ h1 {
 .sideImageRight img {
   right: 0;
   bottom: 0;
-  width: 70%;
+  width: 90%;
 }
 
 .formInput {
-  border: 1px solid var(--textLightColor);
+  border: 1px solid var(--titleColor);
   padding: 8px;
   margin: 24px 0px;
   border-radius: 4px;
@@ -50,8 +49,7 @@ h1 {
 }
 
 .formInput input {
-  background-color: var(--backgroundLightColor);
-  color: var(--textLightColor);
+  background-color: var(--backgroundColor);
   width: 90%;
   border: none;
   outline: none;
@@ -62,13 +60,11 @@ h1 {
 }
 
 .formCheck label {
-  color: var(--textLightColor);
   margin-left: 16px;
 }
 
 .formButton {
-  background-color: var(--secondaryLightColor);
-  color: var(--textLightColor);
+  background-color: var(--secondaryColor);
   padding: 12px 18px;
   outline: none;
   border: none;
@@ -76,7 +72,7 @@ h1 {
 }
 
 .formButton:hover {
-  background-color: var(--primaryLightColor);
+  background-color: var(--primaryColor);
 }
 
 p {

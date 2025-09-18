@@ -9,9 +9,9 @@ import register6 from "../../assets/images/authentication/register/register6.svg
 
 function Register() {
   return (
-    <>
+    <div className={styles.body}>
       <div className={styles.content}>
-        <div className="row">
+        <div className="row mx-1">
           <div className={`col-6 ${styles.hide}`}>
             <div className={styles.sideImage}>
               <img src={register} alt="register" />
@@ -89,7 +89,7 @@ function Register() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,41 @@
+.topbar {
+  background-color: #f8f8f8;
+  padding: 18px 0;
+}
+
+.span {
+  color: var(--primaryColor);
+}
+
+.left,
+.right {
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px 0 0 8px;
+  align-items: center;
+}
+
+.center input {
+  outline: none;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  width: 95%;
+  padding: 8px;
+  background-color: var(--backgroundColor);
+  transition: all 0.6s;
+}
+
+.center input:focus {
+  box-shadow: -1px 1px 5px var(--titleColor);
+}
+
+.right {
+  gap: 8px;
+}

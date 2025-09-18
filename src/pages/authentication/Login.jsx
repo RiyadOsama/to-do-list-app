@@ -8,9 +8,9 @@ import x from "../../assets/images/authentication/login/x.svg";
 
 function Login() {
   return (
-    <>
+    <div className={styles.body}>
       <div className={styles.content}>
-        <div className="row">
+        <div className="row ">
           <div className={`col-6 ${styles.show}`}>
             <h1>Sign In</h1>
             <form>
@@ -64,7 +64,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

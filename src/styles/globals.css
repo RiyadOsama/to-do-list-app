@@ -1,15 +1,15 @@
 :root {
-  --primaryLightColor: #dc143c;
-  --secondaryLightColor: #f75270;
-  --accentLightColor: #f7cac9;
-  --backgroundLightColor: #dcdcdc;
-  --textLightColor: #111827;
-  /* --primaryDarkColor: #3b82f6;
-  --secondaryDarkColor: #f59e0b;
-  --accentDarkColor: #22c55e;
-  --backgroundDarkColor: #1e293b;
-  --textDarkColor: #f1f5f9; */
-  --largeRadius: 16px;
-  --mediumRadius: 8px;
-  --smallRadius: 4px;
+  --primaryColor: #ff6767;
+  --secondaryColor: #f26e6e;
+  --accentColor: #f7cac9;
+  --backgroundColor: #f5f8ff;
+  --titleColor: #212427;
+  --paragraphColor: #747474;
+  --firstColor: #f21e1e;
+  --secondColor: #0225ff;
+  --thirdColor: #05a301;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
 }
