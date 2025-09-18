@@ -1,0 +1,15 @@
+:root {
+  --primaryLightColor: #dc143c;
+  --secondaryLightColor: #f75270;
+  --accentLightColor: #f7cac9;
+  --backgroundLightColor: #dcdcdc;
+  --textLightColor: #111827;
+  /* --primaryDarkColor: #3b82f6;
+  --secondaryDarkColor: #f59e0b;
+  --accentDarkColor: #22c55e;
+  --backgroundDarkColor: #1e293b;
+  --textDarkColor: #f1f5f9; */
+  --largeRadius: 16px;
+  --mediumRadius: 8px;
+  --smallRadius: 4px;
+}

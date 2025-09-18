@@ -1,9 +1,9 @@
-import Home from "./pages/dashboard/Dashboard";
+import Register from "./pages/authentication/Register";
 
 function App() {
   return (
     <>
-      <Home />
+      <Register />
     </>
   );
 }

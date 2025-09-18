@@ -1,0 +1,98 @@
+body {
+  background-image: url(../assets/images/register/authentication.svg);
+  background-color: var(--secondaryLightColor);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: var(--textLightColor);
+}
+
+.content {
+  min-width: 900px;
+  height: auto;
+  background-color: var(--backgroundLightColor);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.sideImage {
+  position: relative;
+  height: 100%;
+}
+
+.sideImage img {
+  width: 50%;
+  height: auto;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.formInput {
+  border: 1px solid var(--textLightColor);
+  padding: 8px;
+  margin: 24px 0px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formInput input {
+  background-color: var(--backgroundLightColor);
+  color: var(--textLightColor);
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+.formCheck {
+  margin: 24px 0px;
+}
+
+.formCheck label {
+  color: var(--textLightColor);
+  margin-left: 16px;
+}
+
+.formButton {
+  background-color: var(--secondaryLightColor);
+  color: var(--textLightColor);
+  padding: 12px 18px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.formButton:hover {
+  background-color: var(--primaryLightColor);
+}
+
+p {
+  margin: 24px 0px;
+}
+
+@media (max-width: 920px) {
+  .content {
+    min-width: unset;
+    padding: 16px;
+  }
+
+  .formInput img {
+    margin-right: 16px;
+  }
+
+  .show {
+    width: 90vw;
+    margin: auto;
+  }
+
+  .hide {
+    display: none;
+  }
+}
