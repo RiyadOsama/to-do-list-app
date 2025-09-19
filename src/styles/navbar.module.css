@@ -33,9 +33,17 @@
 }
 
 .center input:focus {
-  box-shadow: -1px 1px 5px var(--titleColor);
+  box-shadow: -1px 1px 5px var(--secondaryColor);
 }
 
 .right {
   gap: 8px;
+}
+
+button svg {
+  transition: all 0.3s;
+}
+
+button:hover svg {
+  transform: scale(1.09);
 }

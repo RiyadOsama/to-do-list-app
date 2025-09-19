@@ -3,17 +3,18 @@ import styles from "../../styles/navbar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <div className={styles.topbar}>
       <div className="row mx-0">
         <div className="col-3">
-          <div className={styles.left}>
+          <Link className={`${styles.left} nav-link`}>
             <h2>
               <span className={styles.span}>To</span>-Do
             </h2>
-          </div>
+          </Link>
         </div>
         <div className="col-6">
           <div className={styles.center}>

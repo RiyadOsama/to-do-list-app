@@ -1,0 +1,62 @@
+.sidebar {
+  background-color: var(--primaryColor);
+  width: 300px;
+  height: calc(100vh - 130.39px);
+  margin-top: 48px;
+  border-top-right-radius: 16px;
+  color: var(--backgroundColor);
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  margin: auto;
+  transform: translateX(-8px);
+}
+
+.profile img {
+  width: 100%;
+  border-radius: 50%;
+  margin-top: -50px;
+  margin-bottom: 24px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin: 8px auto;
+  padding: 16px 8px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.icon:hover {
+  background-color: #ffffff5b;
+}
+
+.icon svg {
+  transition: all 0.3s;
+}
+
+.icon:hover svg {
+  transform: scale(1.09);
+}
+
+.icon span {
+  margin-left: 16px;
+}
+
+.pages {
+  margin: 32px 16px;
+}
+
+.logout {
+  position: absolute;
+  bottom: 16px;
+  margin: 32px 16px;
+  width: 88.5%;
+}
