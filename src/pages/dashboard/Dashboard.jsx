@@ -5,6 +5,7 @@ import { LuClipboardList } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
 import { Link } from "react-router-dom";
 import UncompletedTaskCard from "../../components/molecules/UncompletedTaskCard";
+import CompletedTaskCard from "../../components/molecules/CompletedTaskCard";
 
 function Dashboard() {
   return (
@@ -39,10 +40,14 @@ function Dashboard() {
               <span>Task Status</span>
             </div>
           </div>
+          <br />
           <div className={styles.child}>
             <div className={styles.cardTitle}>
               <BiTask size={30} />
               <span>Completet Tasks</span>
+            </div>
+            <div style={{ overflow: "auto", height: "445px" }}>
+              <CompletedTaskCard />
             </div>
           </div>
         </div>
