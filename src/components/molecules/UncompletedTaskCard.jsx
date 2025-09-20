@@ -31,19 +31,19 @@ function UncompletedTaskCard() {
             "col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end m-auto"
           }
         >
-          <Link className={`nav-link ${styles.icon}`}>
+          <Link className={styles.icon}>
             <FaRegEye size={25} />
             <span>View</span>
           </Link>
-          <Link className={`nav-link ${styles.icon}`}>
+          <Link className={styles.icon}>
             <FaEdit size={25} />
             <span>Edit</span>
           </Link>
-          <Link className={`nav-link ${styles.icon}`}>
+          <Link className={styles.icon}>
             <MdDelete size={25} />
             <span>Delete</span>
           </Link>
-          <Link className={`nav-link ${styles.icon}`}>
+          <Link className={styles.icon}>
             <IoMdDoneAll size={25} />
             <span>Completed</span>
           </Link>

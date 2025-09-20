@@ -9,8 +9,8 @@ function Navbar() {
   return (
     <div className={styles.topbar}>
       <div className="row mx-0">
-        <div className="col-3">
-          <Link className={`${styles.left} nav-link`}>
+        <div className="col-2">
+          <Link className={styles.left}>
             <h2>
               <span className={styles.span}>To</span>-Do
             </h2>
@@ -29,7 +29,7 @@ function Navbar() {
             </StyledButton>
           </div>
         </div>
-        <div className="col-3">
+        <div className="col-4">
           <div className={styles.right}>
             <StyledButton $variant="secondary">
               <IoMdNotifications size={20} color="white" />

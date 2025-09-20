@@ -9,32 +9,32 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <div className={styles.sidebar}>
-      <Link className={`${styles.profile} nav-link`}>
+      <Link to="/login" className={styles.profile}>
         <div>
           <img src={avatar} alt="avatar" />
         </div>
         <span>Riyad Osama</span>
       </Link>
       <div className={styles.pages}>
-        <Link className={`${styles.icon} nav-link`}>
+        <Link to="/" className={styles.icon}>
           <MdDashboard size={30} />
           <span>Dashboard</span>
         </Link>
-        <Link className={`${styles.icon} nav-link`}>
+        <Link to="/vitalTasks" className={styles.icon}>
           <AiFillAlert size={30} />
           <span>Vital Tasks</span>
         </Link>
-        <Link className={`${styles.icon} nav-link`}>
+        <Link to="/tasks" className={styles.icon}>
           <LuListTodo size={30} />
           <span>My Tasks</span>
         </Link>
-        <Link className={`${styles.icon} nav-link`}>
+        <Link to="/account" className={styles.icon}>
           <CgProfile size={30} />
           <span>My Profile</span>
         </Link>
       </div>
       <div className={styles.logout}>
-        <Link className={`${styles.icon} nav-link`}>
+        <Link to="/login" className={styles.icon}>
           <MdLogout size={30} />
           <span>Logout</span>
         </Link>

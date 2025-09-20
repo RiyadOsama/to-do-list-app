@@ -5,6 +5,7 @@ import login2 from "../../assets/images/authentication/login/login2.svg";
 import google from "../../assets/images/authentication/login/google.svg";
 import facebook from "../../assets/images/authentication/login/facebook.svg";
 import x from "../../assets/images/authentication/login/x.svg";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -36,7 +37,10 @@ function Login() {
                 <input type="checkbox" name="agree" id="agreeLogin" />
                 <label htmlFor="agreeLogin">Remember me</label>
               </div>
-              <button className={styles.formButton}>Login</button>
+              <Link to="/">
+                <button className={styles.formButton}>Login</button>
+              </Link>
+              <br /> <br />
               <p>
                 Or, Login with{" "}
                 <a rel="stylesheet" href="#">
@@ -50,10 +54,7 @@ function Login() {
                 </a>
               </p>
               <p>
-                Don't have an account?{" "}
-                <a rel="stylesheet" href="#">
-                  Create One
-                </a>
+                Don't have an account? <Link to="/register">Create One</Link>
               </p>
             </form>
           </div>

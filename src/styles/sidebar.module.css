@@ -1,6 +1,6 @@
 .sidebar {
   background-color: var(--primaryColor);
-  width: 300px;
+  min-width: 300px;
   height: calc(100vh - 130.39px);
   margin-top: 48px;
   border-top-right-radius: 16px;

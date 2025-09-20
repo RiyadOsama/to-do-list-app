@@ -13,3 +13,9 @@
 body {
   background-color: var(--backgroundColor);
 }
+
+a,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}

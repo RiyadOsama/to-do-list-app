@@ -75,10 +75,6 @@
   background-color: var(--primaryColor);
 }
 
-p {
-  margin: 32px 0px;
-}
-
 p a {
   margin: 0 5px;
 }

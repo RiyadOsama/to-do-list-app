@@ -6,6 +6,7 @@ import register3 from "../../assets/images/authentication/register/register3.svg
 import register4 from "../../assets/images/authentication/register/register4.svg";
 import register5 from "../../assets/images/authentication/register/register5.svg";
 import register6 from "../../assets/images/authentication/register/register6.svg";
+import { Link } from "react-router-dom";
 
 function Register() {
   return (
@@ -78,12 +79,12 @@ function Register() {
                 <input type="checkbox" name="agree" id="agree" />
                 <label htmlFor="agree">I agree to all terms</label>
               </div>
-              <button className={styles.formButton}>Register</button>
+              <Link to="/login">
+                <button className={styles.formButton}>Register</button>
+              </Link>
+              <br /> <br />
               <p>
-                Already have an account?{" "}
-                <a rel="stylesheet" href="#">
-                  Sign In
-                </a>
+                Already have an account? <Link to="/login">Sign In</Link>
               </p>
             </form>
           </div>
