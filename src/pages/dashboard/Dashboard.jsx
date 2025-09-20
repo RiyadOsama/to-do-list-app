@@ -9,10 +9,11 @@ import CompletedTaskCard from "../../components/molecules/CompletedTaskCard";
 import TaskStatusCard from "../../components/molecules/TaskStatusCard";
 function Dashboard() {
   return (
-    <div className="m-5 mb-2 w-100">
+    <div className="m-5 mb-2">
       <h1>
-        Welcome back, Riyad <GiHand color={`var(--primaryColor)`} />
+        Welcome back, Riyad <GiHand color="var(--primaryColor)" />
       </h1>
+      <br />
       <div className={`${styles.parent} row overflow-auto`}>
         <div className="col-12 col-xl-6">
           <div className={styles.child}>
@@ -22,8 +23,8 @@ function Dashboard() {
                 <span>To-Do</span>
               </div>
               <div>
-                <Link className={`${styles.addTask} nav-link`}>
-                  <MdAdd size={24} />
+                <Link to="/addTask" className={styles.addTask}>
+                  <MdAdd size={20} />
                   <span>Add Task</span>
                 </Link>
               </div>

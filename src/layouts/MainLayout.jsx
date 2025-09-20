@@ -7,6 +7,7 @@ import VitalTasks from "../pages/to-do/VitalTasks";
 import MyTasks from "../pages/to-do/MyTasks";
 import AccountInformation from "../pages/account/AccountInformation";
 import ChangePassword from "../pages/account/ChangePassword";
+import AddTask from "../pages/to-do/AddTask";
 
 function MainLayout() {
   return (
@@ -16,6 +17,7 @@ function MainLayout() {
           <Route index element={<Dashboard />} />
           <Route path="/vitalTasks" element={<VitalTasks />} />
           <Route path="/tasks" element={<MyTasks />} />
+          <Route path="/addTask" element={<AddTask />} />
           <Route path="/account" element={<AccountInformation />} />
           <Route path="/password" element={<ChangePassword />} />
         </Route>

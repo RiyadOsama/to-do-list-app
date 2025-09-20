@@ -10,7 +10,7 @@ function Navbar() {
     <div className={styles.topbar}>
       <div className="row mx-0">
         <div className="col-2">
-          <Link className={styles.left}>
+          <Link to="/" className={styles.left}>
             <h2>
               <span className={styles.span}>To</span>-Do
             </h2>

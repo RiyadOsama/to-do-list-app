@@ -55,6 +55,11 @@
   outline: none;
 }
 
+.formInput:focus-within {
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.2);
+}
+
 .formCheck {
   margin: 24px 0px;
 }

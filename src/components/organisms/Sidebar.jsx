@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <div className={styles.sidebar}>
-      <Link to="/login" className={styles.profile}>
+      <Link to="/account" className={styles.profile}>
         <div>
           <img src={avatar} alt="avatar" />
         </div>

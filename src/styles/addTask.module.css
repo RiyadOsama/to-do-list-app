@@ -1,0 +1,130 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+  margin-bottom: 24px;
+}
+
+.goBack {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.goBack svg {
+  color: var(--primaryColor);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  padding: 4px;
+}
+
+.goBack span {
+  font-size: 18px;
+  color: var(--paragraphColor);
+  margin-left: 8px;
+  transition: color 0.3s ease;
+}
+
+.goBack:hover svg {
+  background-color: var(--primaryColor);
+  color: var(--backgroundColor);
+}
+
+.goBack:hover span {
+  color: var(--primaryColor);
+}
+
+.parent {
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  /* height: calc(100vh - 240px); */
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  background-color: var(--backgroundColor);
+}
+
+.formInput {
+  border: 1px solid var(--titleColor);
+  padding: 10px 12px;
+  margin: 16px 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput input,
+.formInput textarea {
+  background-color: var(--backgroundColor);
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  resize: none;
+}
+
+.formInput textarea {
+  height: 150px;
+}
+
+.formInput:focus-within {
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.2);
+}
+
+.formCheck {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.formCheck input {
+  margin-right: 16px;
+}
+
+.formButton {
+  background-color: var(--secondaryColor);
+  color: var(--backgroundColor);
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formButton:hover {
+  background-color: var(--primaryColor);
+}
+
+.image {
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: end;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .parent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 350px;
+  }
+}
