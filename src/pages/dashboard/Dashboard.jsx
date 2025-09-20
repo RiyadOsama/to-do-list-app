@@ -6,7 +6,7 @@ import { MdAdd } from "react-icons/md";
 import { Link } from "react-router-dom";
 import UncompletedTaskCard from "../../components/molecules/UncompletedTaskCard";
 import CompletedTaskCard from "../../components/molecules/CompletedTaskCard";
-
+import TaskStatusCard from "../../components/molecules/TaskStatusCard";
 function Dashboard() {
   return (
     <div className="m-5 mb-2 w-100">
@@ -30,6 +30,9 @@ function Dashboard() {
             </div>
             <div style={{ overflow: "auto", height: "550px" }}>
               <UncompletedTaskCard />
+              <UncompletedTaskCard />
+              <UncompletedTaskCard />
+              <UncompletedTaskCard />
             </div>
           </div>
         </div>
@@ -39,6 +42,23 @@ function Dashboard() {
               <GiProgression size={30} />
               <span>Task Status</span>
             </div>
+            <div className="d-flex justify-content-evenly">
+              <TaskStatusCard
+                color="var(--firstColor)"
+                value={25}
+                label="Not Started"
+              />
+              <TaskStatusCard
+                color="var(--secondColor)"
+                value={50}
+                label="In Progress"
+              />
+              <TaskStatusCard
+                color="var(--thirdColor)"
+                value={75}
+                label="Completed"
+              />
+            </div>
           </div>
           <br />
           <div className={styles.child}>
@@ -46,7 +66,10 @@ function Dashboard() {
               <BiTask size={30} />
               <span>Completet Tasks</span>
             </div>
-            <div style={{ overflow: "auto", height: "445px" }}>
+            <div style={{ overflow: "auto", height: "292px" }}>
+              <CompletedTaskCard />
+              <CompletedTaskCard />
+              <CompletedTaskCard />
               <CompletedTaskCard />
             </div>
           </div>
