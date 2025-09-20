@@ -10,9 +10,6 @@
   --thirdColor: #05a301;
 }
 
-* {
-  font-family: "Ubuntu", sans-serif;
-}
 body {
   background-color: var(--backgroundColor);
 }

@@ -1,0 +1,73 @@
+.taskCard {
+  min-height: 200px;
+  height: auto;
+  border: 1px solid var(--paragraphColor);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px;
+}
+
+.paragraph {
+  color: var(--paragraphColor);
+  height: 76px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  background-color: var(--accentColor);
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: flex;
+  color: var(--paragraphColor);
+  width: fit-content;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.icon {
+  transition: all 0.3s;
+}
+
+.icon:hover {
+  background-color: var(--primaryColor);
+  color: var(--backgroundColor);
+}
+
+@media (max-width: 768px) {
+  .taskCard {
+    margin: 10px;
+    padding: 10px;
+  }
+  .taskCard h5 {
+    font-size: 1.1rem;
+  }
+}
+
+.priorityLow {
+  color: var(--thirdColor);
+}
+
+.priorityModerate {
+  color: var(--secondColor);
+}
+
+.priorityExtreme {
+  color: var(--firstColor);
+}
+
+.statusCompleted {
+  color: var(--thirdColor);
+}
+
+.statusInProgress {
+  color: var(--secondColor);
+}
+
+.statusNotStarted {
+  color: var(--firstColor);
+}
+
+.date {
+  color: var(--paragraphColor);
+}
