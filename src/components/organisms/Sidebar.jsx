@@ -1,5 +1,5 @@
 import styles from "../../styles/sidebar.module.css";
-import avatar from "../../assets/images/sidebar/avatar.png";
+import avatar from "../../assets/images/avatar.png";
 import { MdDashboard, MdLogout } from "react-icons/md";
 import { LuListTodo } from "react-icons/lu";
 import { AiFillAlert } from "react-icons/ai";

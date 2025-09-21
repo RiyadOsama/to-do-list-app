@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/addTask.module.css";
+import styles from "../../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
-import learn from "../../assets/images/addTask/never-stop-learning.gif";
+import pandaHi from "../../assets/images/panda/panda-hi.gif";
 import Datepicker from "../../components/atoms/Datepicker";
 
 function AddTask() {
@@ -23,7 +23,6 @@ function AddTask() {
           </div>
           <h5>Date</h5>
           <div className={styles.formInput}>
-            {/* <input type="date" name="date" id="date" /> */}
             <Datepicker />
           </div>
           <h5>Periority</h5>
@@ -50,7 +49,7 @@ function AddTask() {
           </Link>
         </form>
         <div className={styles.image}>
-          <img src={learn} alt="Learning" />
+          <img src={pandaHi} alt="pandaHi" />
         </div>
       </div>
     </div>
