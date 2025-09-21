@@ -1,12 +1,12 @@
-import styles from "../../styles/dashboard.module.css";
+import styles from "../styles/dashboard.module.css";
 import { GiHand, GiProgression } from "react-icons/gi";
 import { BiTask } from "react-icons/bi";
 import { LuClipboardList } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
 import { Link } from "react-router-dom";
-import TaskCard from "../../components/molecules/TaskCard";
-import CompletedTaskCard from "../../components/molecules/CompletedTaskCard";
-import TaskStatusCard from "../../components/molecules/TaskStatusCard";
+import TaskCard from "../components/molecules/TaskCard";
+import CompletedTaskCard from "../components/molecules/CompletedTaskCard";
+import TaskStatusCard from "../components/molecules/TaskStatusCard";
 function Dashboard() {
   return (
     <div className="m-5 mb-2">

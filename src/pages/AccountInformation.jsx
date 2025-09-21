@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/form.module.css";
+import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
-import pandaPathway from "../../assets/images/panda/panda-pathway.gif";
+import pandaPathway from "../assets/images/panda/panda-pathway.gif";
 
 function AccountInformation() {
   return (

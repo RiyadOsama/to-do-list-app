@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/form.module.css";
+import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
-import pandaHi from "../../assets/images/panda/panda-hi.gif";
-import Datepicker from "../../components/atoms/Datepicker";
+import pandaHi from "../assets/images/panda/panda-hi.gif";
+import Datepicker from "../components/atoms/Datepicker";
 
 function AddTask() {
   return (

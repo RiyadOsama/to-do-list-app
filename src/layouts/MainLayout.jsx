@@ -1,13 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SharedLayout from "./SharedLayout";
-import Dashboard from "../pages/dashboard/Dashboard";
-import Login from "../pages/authentication/Login";
-import Register from "../pages/authentication/Register";
-import VitalTasks from "../pages/to-do/VitalTasks";
-import MyTasks from "../pages/to-do/MyTasks";
-import AccountInformation from "../pages/account/AccountInformation";
-import ChangePassword from "../pages/account/ChangePassword";
-import AddTask from "../pages/to-do/AddTask";
+import Dashboard from "../pages/Dashboard";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import VitalTasks from "../pages/VitalTasks";
+import MyTasks from "../pages/MyTasks";
+import AccountInformation from "../pages/AccountInformation";
+import ChangePassword from "../pages/ChangePassword";
+import AddTask from "../pages/AddTask";
+import NotFound from "../pages/NotFound";
+import ViewTask from "../pages/ViewTask";
 
 function MainLayout() {
   return (
@@ -18,11 +20,13 @@ function MainLayout() {
           <Route path="/vitalTasks" element={<VitalTasks />} />
           <Route path="/tasks" element={<MyTasks />} />
           <Route path="/addTask" element={<AddTask />} />
+          <Route path="/viewTask" element={<ViewTask />} />
           <Route path="/account" element={<AccountInformation />} />
           <Route path="/password" element={<ChangePassword />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

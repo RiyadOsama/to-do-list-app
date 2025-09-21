@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/form.module.css";
+import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
-import pandaHappy from "../../assets/images/panda/panda-happy.gif";
+import pandaHappy from "../assets/images/panda/panda-happy.gif";
 
 function ChangePassword() {
   return (

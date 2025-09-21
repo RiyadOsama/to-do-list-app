@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/form.module.css";
+import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
-import TaskCard from "../../components/molecules/TaskCard";
+import TaskCard from "../components/molecules/TaskCard";
 
 function MyTasks() {
   return (

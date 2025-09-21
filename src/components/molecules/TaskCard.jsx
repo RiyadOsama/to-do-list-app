@@ -31,11 +31,11 @@ function TaskCard() {
             "col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end m-auto"
           }
         >
-          <Link className={styles.icon}>
+          <Link to="/viewTask" className={styles.icon}>
             <FaRegEye size={25} />
             <span>View</span>
           </Link>
-          <Link className={styles.icon}>
+          <Link to="/addTask" className={styles.icon}>
             <FaEdit size={25} />
             <span>Edit</span>
           </Link>

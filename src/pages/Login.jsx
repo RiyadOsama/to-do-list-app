@@ -1,10 +1,10 @@
-import styles from "../../styles/authentication.module.css";
-import login from "../../assets/images/authentication/login/login.svg";
-import login1 from "../../assets/images/authentication/login/login1.svg";
-import login2 from "../../assets/images/authentication/login/login2.svg";
-import google from "../../assets/images/authentication/login/google.svg";
-import facebook from "../../assets/images/authentication/login/facebook.svg";
-import x from "../../assets/images/authentication/login/x.svg";
+import styles from "../styles/authentication.module.css";
+import login from "../assets/images/authentication/login/login.svg";
+import login1 from "../assets/images/authentication/login/login1.svg";
+import login2 from "../assets/images/authentication/login/login2.svg";
+import google from "../assets/images/authentication/login/google.svg";
+import facebook from "../assets/images/authentication/login/facebook.svg";
+import x from "../assets/images/authentication/login/x.svg";
 import { Link } from "react-router-dom";
 
 function Login() {
