@@ -4,25 +4,38 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { IoMdDoneAll } from "react-icons/io";
 
-function TaskCard() {
+function TaskCard({ task }) {
   return (
     <div className={styles.taskCard}>
       <div className="row h-100">
         <div className="col-12 col-md-8">
-          <h5>Eat Healthy Food</h5>
+          <h5>{task.title}</h5>
           <div className={`${styles.paragraph} overflow-hidden `}>
-            Healthy Food is a type of food that provides nutrients to keep your
-            body healthy, energized, and functioning properly.
+            {task.description}
           </div>
           <div className="my-1">
             <div>
-              Priority: <span className={styles.priorityExtreme}>Extreme</span>
+              Priority:{" "}
+              <span className={styles[task.priority]}>
+                {task.priority.charAt(0).toUpperCase() +
+                  task.priority.slice(1).toLowerCase()}
+              </span>
             </div>
             <div>
-              Status: <span className={styles.statusCompleted}>Completed</span>
+              Status: <span className={styles.statusCompleted}>Unset</span>
             </div>
             <div>
-              Date: <span className={styles.date}>14-11-2025</span>
+              Date:{" "}
+              <span className={styles.date}>
+                {new Date(task.date).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })}
+              </span>
             </div>
           </div>
         </div>

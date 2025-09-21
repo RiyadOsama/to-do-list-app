@@ -44,27 +44,27 @@
   }
 }
 
-.priorityLow {
+.low {
   color: var(--thirdColor);
 }
 
-.priorityModerate {
+.moderate {
   color: var(--secondColor);
 }
 
-.priorityExtreme {
+.extreme {
   color: var(--firstColor);
 }
 
-.statusCompleted {
+.completed {
   color: var(--thirdColor);
 }
 
-.statusInProgress {
+.progress {
   color: var(--secondColor);
 }
 
-.statusNotStarted {
+.pending {
   color: var(--firstColor);
 }
 

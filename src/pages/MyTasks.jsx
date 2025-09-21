@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
 import TaskCard from "../components/molecules/TaskCard";
+import { useContext } from "react";
+import TasksContext from "../context/TasksContext";
 
 function MyTasks() {
+  const { tasks } = useContext(TasksContext);
+
   return (
     <div className="m-5 mb-2">
       <div className={styles.header}>
@@ -18,12 +22,8 @@ function MyTasks() {
         className={styles.parent}
         style={{ display: "block", overflow: "auto", height: "65.8vh" }}
       >
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
+        {tasks &&
+          tasks.map((task, index) => <TaskCard key={index} task={task} />)}
       </div>
     </div>
   );

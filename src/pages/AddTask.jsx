@@ -3,23 +3,27 @@ import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
 import pandaHi from "../assets/images/panda/panda-hi.gif";
 import Datepicker from "../components/atoms/Datepicker";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import TasksContext from "../context/TasksContext";
 
 function AddTask() {
-  const [tasks, setTask] = useState({
+  const { setTasks } = useContext(TasksContext);
+
+  const [task, setTask] = useState({
     title: "",
     date: null,
-    periority: "",
+    priority: "",
     description: "",
   });
 
   const handleChange = (e) => {
-    setTask({ ...tasks, [e.target.name]: e.target.value });
+    setTask({ ...task, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(tasks);
+    setTasks((prevTasks) => [...prevTasks, task]);
+    setTask({ title: "", date: null, priority: "", description: "" });
   };
 
   return (
@@ -39,28 +43,28 @@ function AddTask() {
             <input
               type="text"
               name="title"
-              value={tasks.title}
+              value={task.title}
               onChange={handleChange}
             />
           </div>
           <h5>Date</h5>
           <div className={styles.formInput}>
             <Datepicker
-              value={tasks.date}
-              onChange={(date) => setTask({ ...tasks, date })}
+              value={task.date}
+              onChange={(date) => setTask({ ...task, date })}
             />
           </div>
-          <h5>Periority</h5>
+          <h5>priority</h5>
           <div className={styles.formCheck}>
             <label htmlFor="low" style={{ color: "var(--thirdColor)" }}>
               Low
             </label>
             <input
               type="radio"
-              name="periority"
+              name="priority"
               id="low"
               value="low"
-              checked={tasks.periority == "low"}
+              checked={task.priority == "low"}
               onChange={handleChange}
             />
             <label htmlFor="moderate" style={{ color: "var(--secondColor)" }}>
@@ -68,10 +72,10 @@ function AddTask() {
             </label>
             <input
               type="radio"
-              name="periority"
+              name="priority"
               id="moderate"
               value="moderate"
-              checked={tasks.periority == "moderate"}
+              checked={task.priority == "moderate"}
               onChange={handleChange}
             />
             <label htmlFor="extreme" style={{ color: "var(--firstColor)" }}>
@@ -79,10 +83,10 @@ function AddTask() {
             </label>
             <input
               type="radio"
-              name="periority"
+              name="priority"
               id="extreme"
               value="extreme"
-              checked={tasks.periority == "extreme"}
+              checked={task.priority == "extreme"}
               onChange={handleChange}
             />
           </div>
@@ -90,7 +94,7 @@ function AddTask() {
           <div className={styles.formInput}>
             <textarea
               name="description"
-              value={tasks.description}
+              value={task.description}
               onChange={handleChange}
             />
           </div>

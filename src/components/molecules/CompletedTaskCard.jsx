@@ -15,10 +15,10 @@ function CompletedTaskCard() {
           </div>
           <div className="my-1">
             <div>
-              Priority: <span className={styles.priorityExtreme}>Extreme</span>
+              Priority: <span className={styles.extreme}>Extreme</span>
             </div>
             <div>
-              Status: <span className={styles.statusCompleted}>Completed</span>
+              Status: <span className={styles.completed}>Completed</span>
             </div>
             <div>
               Completed <span className={styles.date}>2</span> days ago

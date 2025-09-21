@@ -7,7 +7,11 @@ import { Link } from "react-router-dom";
 import TaskCard from "../components/molecules/TaskCard";
 import CompletedTaskCard from "../components/molecules/CompletedTaskCard";
 import TaskStatusCard from "../components/molecules/TaskStatusCard";
+import { useContext } from "react";
+import TasksContext from "../context/TasksContext";
+
 function Dashboard() {
+  const { tasks } = useContext(TasksContext);
   return (
     <div className="m-5 mb-2">
       <h1>
@@ -30,11 +34,10 @@ function Dashboard() {
               </div>
             </div>
             <div style={{ overflow: "auto", height: "550px" }}>
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
+              {tasks &&
+                tasks.map((task, index) => (
+                  <TaskCard key={index} task={task} />
+                ))}
             </div>
           </div>
         </div>

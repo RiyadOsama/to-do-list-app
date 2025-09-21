@@ -26,10 +26,10 @@ function ViewTask() {
           </div>
           <div className="my-1">
             <div>
-              Priority: <span className={style.priorityExtreme}>Extreme</span>
+              Priority: <span className={style.extreme}>Extreme</span>
             </div>
             <div>
-              Status: <span className={style.statusCompleted}>Completed</span>
+              Status: <span className={style.completed}>Completed</span>
             </div>
             <div>
               Date: <span className={style.date}>14-11-2025</span>
