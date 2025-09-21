@@ -4,7 +4,7 @@ import { BiTask } from "react-icons/bi";
 import { LuClipboardList } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
 import { Link } from "react-router-dom";
-import UncompletedTaskCard from "../../components/molecules/UncompletedTaskCard";
+import TaskCard from "../../components/molecules/TaskCard";
 import CompletedTaskCard from "../../components/molecules/CompletedTaskCard";
 import TaskStatusCard from "../../components/molecules/TaskStatusCard";
 function Dashboard() {
@@ -30,10 +30,11 @@ function Dashboard() {
               </div>
             </div>
             <div style={{ overflow: "auto", height: "550px" }}>
-              <UncompletedTaskCard />
-              <UncompletedTaskCard />
-              <UncompletedTaskCard />
-              <UncompletedTaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
             </div>
           </div>
         </div>

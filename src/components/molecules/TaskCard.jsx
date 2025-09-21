@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { IoMdDoneAll } from "react-icons/io";
 
-function UncompletedTaskCard() {
+function TaskCard() {
   return (
     <div className={styles.taskCard}>
       <div className="row h-100">
@@ -53,4 +53,4 @@ function UncompletedTaskCard() {
   );
 }
 
-export default UncompletedTaskCard;
+export default TaskCard;
