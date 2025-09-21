@@ -1,13 +1,11 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function Datepicker() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+function Datepicker({ value, onChange }) {
   return (
     <DatePicker
-      selected={selectedDate}
-      onChange={(date) => setSelectedDate(date)}
+      selected={value}
+      onChange={onChange}
       timeInputLabel="Time:"
       dateFormat="dd/MM/yyyy h:mm aa"
       showTimeInput
