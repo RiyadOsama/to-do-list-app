@@ -2,8 +2,8 @@ import StyledButton from "../atoms/Button.style";
 import styles from "../../styles/navbar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
-import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import CurrentDate from "../atoms/CurrentDate";
 
 function Navbar() {
   return (
@@ -34,9 +34,7 @@ function Navbar() {
             <StyledButton $variant="secondary">
               <IoMdNotifications size={20} color="white" />
             </StyledButton>
-            <StyledButton $variant="secondary">
-              <FaCalendarAlt size={20} color="white" />
-            </StyledButton>
+            <CurrentDate />
           </div>
         </div>
       </div>

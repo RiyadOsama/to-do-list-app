@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/addTask.module.css";
 import { IoIosArrowBack } from "react-icons/io";
 import learn from "../../assets/images/addTask/never-stop-learning.gif";
+import Datepicker from "../../components/atoms/Datepicker";
 
 function AddTask() {
   return (
@@ -18,11 +19,12 @@ function AddTask() {
         <form className="w-100">
           <h5>Title</h5>
           <div className={styles.formInput}>
-            <input type="text" name="userName" id="userNameLogin" />
+            <input type="text" name="title" id="title" />
           </div>
           <h5>Date</h5>
           <div className={styles.formInput}>
-            <input type="date" name="password" id="passwordLogin" />
+            {/* <input type="date" name="date" id="date" /> */}
+            <Datepicker />
           </div>
           <h5>Periority</h5>
           <div className={styles.formCheck}>
