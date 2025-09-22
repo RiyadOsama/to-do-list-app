@@ -36,7 +36,7 @@ function Dashboard() {
             <div style={{ overflow: "auto", height: "550px" }}>
               {tasks &&
                 tasks.map((task, index) => (
-                  <TaskCard key={index} task={task} />
+                  <TaskCard key={index} task={task} index={index} />
                 ))}
             </div>
           </div>

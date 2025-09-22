@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { IoMdDoneAll } from "react-icons/io";
 
-function TaskCard({ task }) {
+function TaskCard({ task, index }) {
   return (
     <div className={styles.taskCard}>
       <div className="row h-100">
@@ -22,7 +22,7 @@ function TaskCard({ task }) {
               </span>
             </div>
             <div>
-              Status: <span className={styles.statusCompleted}>Unset</span>
+              Status: <span className={styles.completed}>Unset</span>
             </div>
             <div>
               Date:{" "}
@@ -44,7 +44,7 @@ function TaskCard({ task }) {
             "col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end m-auto"
           }
         >
-          <Link to="/viewTask" className={styles.icon}>
+          <Link to={`/viewTask/${index}`} className={styles.icon}>
             <FaRegEye size={25} />
             <span>View</span>
           </Link>

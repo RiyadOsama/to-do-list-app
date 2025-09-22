@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import style from "../styles/taskCard.module.css";
 import styles from "../styles/form.module.css";
 import { IoIosArrowBack, IoMdDoneAll } from "react-icons/io";
 import pandaWelcome from "../assets/images/panda/panda-welcome.gif";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useContext } from "react";
+import TasksContext from "../context/TasksContext";
 
 function ViewTask() {
+  const { tasks } = useContext(TasksContext);
+  const { index } = useParams();
+
+  const task = tasks && tasks[Number(index)];
+
   return (
     <div className="m-5 mb-2">
       <div className={styles.header}>
@@ -19,20 +26,33 @@ function ViewTask() {
       <br /> <br />
       <div className={styles.parent}>
         <div>
-          <h5>Eat Healthy Food</h5>
+          <h5>{task.title}</h5>
           <div className={`${style.paragraph} overflow-hidden `}>
-            Healthy Food is a type of food that provides nutrients to keep your
-            body healthy, energized, and functioning properly.
+            {task.description}
           </div>
           <div className="my-1">
             <div>
-              Priority: <span className={style.extreme}>Extreme</span>
+              Priority:{" "}
+              <span className={style[task.priority]}>
+                {task.priority.charAt(0).toUpperCase() +
+                  task.priority.slice(1).toLowerCase()}
+              </span>
             </div>
             <div>
-              Status: <span className={style.completed}>Completed</span>
+              Status: <span className={style.completed}>Unset</span>
             </div>
             <div>
-              Date: <span className={style.date}>14-11-2025</span>
+              Date:{" "}
+              <span className={style.date}>
+                {new Date(task.date).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })}
+              </span>
             </div>
           </div>
           <div
