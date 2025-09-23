@@ -35,14 +35,17 @@ function VitalTasks() {
             .filter((task) => task.status !== "Completed")
             .filter((task) => task.priority == "extreme")
             .sort((a, b) => new Date(b.date) - new Date(a.date))
-            .map((task, index) => (
-              <TaskCard
-                key={index}
-                task={task}
-                index={index}
-                handleStatus={handleStatus}
-              />
-            ))}
+            .map((task) => {
+              const originalIndex = tasks.indexOf(task);
+              return (
+                <TaskCard
+                  key={originalIndex}
+                  task={task}
+                  index={originalIndex}
+                  handleStatus={handleStatus}
+                />
+              );
+            })}
       </div>
     </div>
   );
