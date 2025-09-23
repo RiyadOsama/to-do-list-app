@@ -35,9 +35,11 @@ function Dashboard() {
             </div>
             <div style={{ overflow: "auto", height: "550px" }}>
               {tasks &&
-                tasks.map((task, index) => (
-                  <TaskCard key={index} task={task} index={index} />
-                ))}
+                [...tasks]
+                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .map((task, index) => (
+                    <TaskCard key={index} task={task} index={index} />
+                  ))}
             </div>
           </div>
         </div>
