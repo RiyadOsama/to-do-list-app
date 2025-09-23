@@ -5,15 +5,23 @@ import { LuClipboardList } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
 import { Link } from "react-router-dom";
 import TaskCard from "../components/molecules/TaskCard";
-import CompletedTaskCard from "../components/molecules/CompletedTaskCard";
 import TaskStatusCard from "../components/molecules/TaskStatusCard";
 import { useContext } from "react";
 import TasksContext from "../context/TasksContext";
 
 function Dashboard() {
-  const { tasks } = useContext(TasksContext);
+  const { tasks, setTasks } = useContext(TasksContext);
+
+  const handleStatus = (taskIndex, newStatus) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((t, i) =>
+        i === taskIndex ? { ...t, status: newStatus } : t
+      )
+    );
+  };
+
   return (
-    <div className="m-5 mb-2">
+    <div className="m-5 mb-2 w-100">
       <h1>
         Welcome back, Riyad <GiHand color="var(--primaryColor)" />
       </h1>
@@ -36,9 +44,15 @@ function Dashboard() {
             <div style={{ overflow: "auto", height: "550px" }}>
               {tasks &&
                 [...tasks]
+                  .filter((task) => task.status !== "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
                   .map((task, index) => (
-                    <TaskCard key={index} task={task} index={index} />
+                    <TaskCard
+                      key={index}
+                      task={task}
+                      index={index}
+                      handleStatus={handleStatus}
+                    />
                   ))}
             </div>
           </div>
@@ -74,10 +88,18 @@ function Dashboard() {
               <span>Completet Tasks</span>
             </div>
             <div style={{ overflow: "auto", height: "292px" }}>
-              <CompletedTaskCard />
-              <CompletedTaskCard />
-              <CompletedTaskCard />
-              <CompletedTaskCard />
+              {tasks &&
+                [...tasks]
+                  .filter((task) => task.status === "Completed")
+                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .map((task, index) => (
+                    <TaskCard
+                      key={index}
+                      task={task}
+                      index={index}
+                      handleStatus={handleStatus}
+                    />
+                  ))}
             </div>
           </div>
         </div>

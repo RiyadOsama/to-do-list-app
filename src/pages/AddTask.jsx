@@ -29,6 +29,7 @@ function AddTask() {
     date: null,
     priority: "",
     description: "",
+    status: "Not Started",
   });
 
   const handleChange = (e) => {
@@ -45,7 +46,13 @@ function AddTask() {
     } else {
       setTasks((prevTasks) => [...prevTasks, task]);
     }
-    setTask({ title: "", date: null, priority: "", description: "" });
+    setTask({
+      title: "",
+      date: null,
+      priority: "",
+      description: "",
+      status: "Not Started",
+    });
     navigate("/");
   };
 

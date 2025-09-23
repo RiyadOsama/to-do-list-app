@@ -22,7 +22,7 @@
   color: var(--paragraphColor);
   width: fit-content;
   gap: 8px;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
 }
 
 .icon {
@@ -60,11 +60,11 @@
   color: var(--thirdColor);
 }
 
-.progress {
+.inProgress {
   color: var(--secondColor);
 }
 
-.pending {
+.notStarted {
   color: var(--firstColor);
 }
 
