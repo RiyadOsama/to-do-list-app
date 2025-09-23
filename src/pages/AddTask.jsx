@@ -1,14 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "../styles/form.module.css";
 import { IoIosArrowBack } from "react-icons/io";
 import pandaHi from "../assets/images/panda/panda-hi.gif";
 import Datepicker from "../components/atoms/Datepicker";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TasksContext from "../context/TasksContext";
 
 function AddTask() {
-  const { setTasks } = useContext(TasksContext);
+  // Get and Set Tasks of Context Api
+  const { tasks, setTasks } = useContext(TasksContext);
 
+  // Get index From The Url
+  const { index } = useParams();
+  const parsedIndex = index ? parseInt(index, 10) : -1;
+
+  const navigate = useNavigate();
+
+  // Rendering The Editing Task into The Form
+  useEffect(() => {
+    if (!isNaN(parsedIndex) && parsedIndex >= 0 && tasks[parsedIndex]) {
+      setTask(tasks[parsedIndex]);
+    }
+  }, [tasks, parsedIndex]);
+
+  // Get and Set Task of Local State
   const [task, setTask] = useState({
     title: "",
     date: null,
@@ -20,16 +35,24 @@ function AddTask() {
     setTask({ ...task, [e.target.name]: e.target.value });
   };
 
+  // On Submit Set The Tasks into The Contaxt Api and Resit The Form
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks((prevTasks) => [...prevTasks, task]);
+    if (parsedIndex >= 0) {
+      setTasks((prevTasks) =>
+        prevTasks.map((t, i) => (i === parsedIndex ? task : t))
+      );
+    } else {
+      setTasks((prevTasks) => [...prevTasks, task]);
+    }
     setTask({ title: "", date: null, priority: "", description: "" });
+    navigate("/");
   };
 
   return (
     <div className="m-5 mb-2">
       <div className={styles.header}>
-        <h4>Add New Task</h4>
+        <h4>{index ? "Update Task" : "Add New Task"}</h4>
         <Link to="/" className={styles.goBack}>
           <IoIosArrowBack size={20} />
           <span>Go Back</span>
@@ -64,7 +87,7 @@ function AddTask() {
               name="priority"
               id="low"
               value="low"
-              checked={task.priority == "low"}
+              checked={task.priority === "low"}
               onChange={handleChange}
             />
             <label htmlFor="moderate" style={{ color: "var(--secondColor)" }}>
@@ -75,7 +98,7 @@ function AddTask() {
               name="priority"
               id="moderate"
               value="moderate"
-              checked={task.priority == "moderate"}
+              checked={task.priority === "moderate"}
               onChange={handleChange}
             />
             <label htmlFor="extreme" style={{ color: "var(--firstColor)" }}>
@@ -86,7 +109,7 @@ function AddTask() {
               name="priority"
               id="extreme"
               value="extreme"
-              checked={task.priority == "extreme"}
+              checked={task.priority === "extreme"}
               onChange={handleChange}
             />
           </div>

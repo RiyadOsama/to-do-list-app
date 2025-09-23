@@ -20,6 +20,7 @@ function MainLayout() {
           <Route path="/vitalTasks" element={<VitalTasks />} />
           <Route path="/tasks" element={<MyTasks />} />
           <Route path="/addTask" element={<AddTask />} />
+          <Route path="/addTask/:index/edit" element={<AddTask />} />
           <Route path="/viewTask/:index" element={<ViewTask />} />
           <Route path="/account" element={<AccountInformation />} />
           <Route path="/password" element={<ChangePassword />} />

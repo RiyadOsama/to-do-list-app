@@ -24,6 +24,7 @@ function VitalTasks() {
       >
         {tasks &&
           [...tasks]
+            .filter((task) => task.priority == "extreme")
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .map((task, index) => (
               <TaskCard key={index} task={task} index={index} />

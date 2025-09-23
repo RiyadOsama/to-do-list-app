@@ -48,7 +48,7 @@ function TaskCard({ task, index }) {
             <FaRegEye size={25} />
             <span>View</span>
           </Link>
-          <Link to="/addTask" className={styles.icon}>
+          <Link to={`/addTask/${index}/edit`} className={styles.icon}>
             <FaEdit size={25} />
             <span>Edit</span>
           </Link>
