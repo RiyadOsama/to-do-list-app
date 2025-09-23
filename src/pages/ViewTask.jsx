@@ -15,7 +15,6 @@ function ViewTask() {
   const taskIndex = parseInt(index, 10);
   const task = tasks && tasks[taskIndex];
 
-  // Guard: handle missing/invalid task
   if (!task) {
     return (
       <div className="m-5">

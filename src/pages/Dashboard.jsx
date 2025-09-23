@@ -20,6 +20,14 @@ function Dashboard() {
     );
   };
 
+  const total = tasks.length || 1;
+
+  const counts = {
+    "Not Started": tasks.filter((t) => t.status === "Not Started").length,
+    "In Progress": tasks.filter((t) => t.status === "In Progress").length,
+    Completed: tasks.filter((t) => t.status === "Completed").length,
+  };
+
   return (
     <div className="m-5 mb-2 w-100">
       <h1>
@@ -46,14 +54,17 @@ function Dashboard() {
                 [...tasks]
                   .filter((task) => task.status !== "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
-                  .map((task, index) => (
-                    <TaskCard
-                      key={index}
-                      task={task}
-                      index={index}
-                      handleStatus={handleStatus}
-                    />
-                  ))}
+                  .map((task) => {
+                    const originalIndex = tasks.indexOf(task);
+                    return (
+                      <TaskCard
+                        key={originalIndex}
+                        task={task}
+                        index={originalIndex}
+                        handleStatus={handleStatus}
+                      />
+                    );
+                  })}
             </div>
           </div>
         </div>
@@ -66,17 +77,17 @@ function Dashboard() {
             <div className="d-flex justify-content-evenly">
               <TaskStatusCard
                 color="var(--firstColor)"
-                value={25}
+                value={Math.round((counts["Not Started"] / total) * 100)}
                 label="Not Started"
               />
               <TaskStatusCard
                 color="var(--secondColor)"
-                value={50}
+                value={Math.round((counts["In Progress"] / total) * 100)}
                 label="In Progress"
               />
               <TaskStatusCard
                 color="var(--thirdColor)"
-                value={75}
+                value={Math.round((counts["Completed"] / total) * 100)}
                 label="Completed"
               />
             </div>
@@ -92,14 +103,17 @@ function Dashboard() {
                 [...tasks]
                   .filter((task) => task.status === "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
-                  .map((task, index) => (
-                    <TaskCard
-                      key={index}
-                      task={task}
-                      index={index}
-                      handleStatus={handleStatus}
-                    />
-                  ))}
+                  .map((task) => {
+                    const originalIndex = tasks.indexOf(task);
+                    return (
+                      <TaskCard
+                        key={originalIndex}
+                        task={task}
+                        index={originalIndex}
+                        handleStatus={handleStatus}
+                      />
+                    );
+                  })}
             </div>
           </div>
         </div>
