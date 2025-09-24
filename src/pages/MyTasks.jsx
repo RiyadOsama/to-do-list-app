@@ -6,7 +6,7 @@ import { useContext } from "react";
 import TasksContext from "../context/TasksContext";
 
 function MyTasks() {
-  const { tasks, setTasks } = useContext(TasksContext);
+  const { tasks, setTasks, searchQuery } = useContext(TasksContext);
 
   const handleStatus = (taskId, newStatus) => {
     setTasks((prevTasks) =>
@@ -17,6 +17,10 @@ function MyTasks() {
   const handleDelete = (taskId) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
+
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="m-5 mb-2">
@@ -32,8 +36,8 @@ function MyTasks() {
         className={styles.parent}
         style={{ display: "block", overflow: "auto", height: "65.8vh" }}
       >
-        {tasks &&
-          [...tasks]
+        {filteredTasks &&
+          [...filteredTasks]
             .filter((task) => task.status !== "Completed")
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .map((task) => {

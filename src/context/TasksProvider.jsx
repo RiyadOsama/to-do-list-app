@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TasksContext from "./TasksContext";
 
 function TasksProvider({ children }) {
@@ -7,12 +7,16 @@ function TasksProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
-    <>
-      <TasksContext.Provider value={{ tasks, setTasks }}>
-        {children}
-      </TasksContext.Provider>
-    </>
+    <TasksContext.Provider value={{ tasks, setTasks, searchQuery, setSearchQuery }}>
+      {children}
+    </TasksContext.Provider>
   );
 }
 

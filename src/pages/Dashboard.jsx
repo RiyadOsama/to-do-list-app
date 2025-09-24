@@ -10,7 +10,7 @@ import { useContext } from "react";
 import TasksContext from "../context/TasksContext";
 
 function Dashboard() {
-  const { tasks, setTasks } = useContext(TasksContext);
+  const { tasks, setTasks, searchQuery } = useContext(TasksContext);
 
   const handleStatus = (taskId, newStatus) => {
     setTasks((prevTasks) =>
@@ -22,11 +22,15 @@ function Dashboard() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
-  const total = tasks.length || 1;
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const total = filteredTasks.length || 1;
   const counts = {
-    "Not Started": tasks.filter((t) => t.status === "Not Started").length,
-    "In Progress": tasks.filter((t) => t.status === "In Progress").length,
-    Completed: tasks.filter((t) => t.status === "Completed").length,
+    "Not Started": filteredTasks.filter((t) => t.status === "Not Started").length,
+    "In Progress": filteredTasks.filter((t) => t.status === "In Progress").length,
+    Completed: filteredTasks.filter((t) => t.status === "Completed").length,
   };
 
   return (
@@ -51,8 +55,8 @@ function Dashboard() {
               </div>
             </div>
             <div style={{ overflow: "auto", height: "550px" }}>
-              {tasks &&
-                [...tasks]
+              {filteredTasks &&
+                [...filteredTasks]
                   .filter((task) => task.status !== "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
                   .map((task) => {
@@ -100,8 +104,8 @@ function Dashboard() {
               <span>Completed Tasks</span>
             </div>
             <div style={{ overflow: "auto", height: "292px" }}>
-              {tasks &&
-                [...tasks]
+              {filteredTasks &&
+                [...filteredTasks]
                   .filter((task) => task.status === "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
                   .map((task) => {
