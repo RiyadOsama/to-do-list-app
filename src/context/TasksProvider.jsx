@@ -2,7 +2,10 @@ import { useState } from "react";
 import TasksContext from "./TasksContext";
 
 function TasksProvider({ children }) {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem("tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   return (
     <>

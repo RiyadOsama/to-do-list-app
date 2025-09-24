@@ -12,6 +12,13 @@ function TaskCard({ task, id, handleStatus, handleDelete }) {
       Completed: styles.completed,
     }[task.status] || styles.notStarted;
 
+  const nextStatus =
+    task.status === "Not Started"
+      ? "In Progress"
+      : task.status === "In Progress"
+      ? "Completed"
+      : "Not Started";
+
   const formattedPriority = task.priority
     ? task.priority.charAt(0).toUpperCase() +
       task.priority.slice(1).toLowerCase()
@@ -68,25 +75,10 @@ function TaskCard({ task, id, handleStatus, handleDelete }) {
           </Link>
           <Link
             className={styles.icon}
-            onClick={() =>
-              handleStatus(
-                id,
-                task.status === "Not Started"
-                  ? "In Progress"
-                  : task.status === "In Progress"
-                  ? "Completed"
-                  : "Not Started"
-              )
-            }
+            onClick={() => handleStatus(id, nextStatus)}
           >
             <IoMdDoneAll size={25} />
-            <span>
-              {task.status === "Not Started"
-                ? "In_Progress"
-                : task.status === "In Progress"
-                ? "Completed"
-                : "Not_Started"}
-            </span>
+            <span>{nextStatus.replace(" ", "_")}</span>
           </Link>
         </div>
       </div>

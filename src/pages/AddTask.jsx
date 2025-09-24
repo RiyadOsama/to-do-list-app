@@ -39,16 +39,27 @@ function AddTask() {
     setTask({ ...task, [e.target.name]: e.target.value });
   };
 
-  // On Submit Set The Tasks into The Contaxt Api and Resit The Form
+  // On Submit Set The Tasks into The Contaxt Api and Local Storage
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (id) {
-      setTasks((prevTasks) =>
-        prevTasks.map((t) => (t.id === id ? task : t))
-      );
+      // Updating existing task
+      setTasks((prevTasks) => {
+        const updatedTasks = prevTasks.map((t) => (t.id === id ? task : t));
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+        return updatedTasks;
+      });
     } else {
-      setTasks((prevTasks) => [...prevTasks, task]);
+      // Adding new task
+      setTasks((prevTasks) => {
+        const updatedTasks = [...prevTasks, task];
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+        return updatedTasks;
+      });
     }
+
+    // Reset form
     setTask({
       id: String(Date.now()),
       title: "",
@@ -57,6 +68,7 @@ function AddTask() {
       description: "",
       status: "Not Started",
     });
+
     navigate("/");
   };
 
