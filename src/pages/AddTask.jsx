@@ -10,21 +10,24 @@ function AddTask() {
   // Get and Set Tasks of Context Api
   const { tasks, setTasks } = useContext(TasksContext);
 
-  // Get index From The Url
-  const { index } = useParams();
-  const parsedIndex = index ? parseInt(index, 10) : -1;
+  // Get id From The Url
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
   // Rendering The Editing Task into The Form
   useEffect(() => {
-    if (!isNaN(parsedIndex) && parsedIndex >= 0 && tasks[parsedIndex]) {
-      setTask(tasks[parsedIndex]);
+    if (id) {
+      const taskToEdit = tasks.find((t) => t.id === id);
+      if (taskToEdit) {
+        setTask(taskToEdit);
+      }
     }
-  }, [tasks, parsedIndex]);
+  }, [tasks, id]);
 
   // Get and Set Task of Local State
   const [task, setTask] = useState({
+    id: String(Date.now()),
     title: "",
     date: null,
     priority: "",
@@ -39,14 +42,15 @@ function AddTask() {
   // On Submit Set The Tasks into The Contaxt Api and Resit The Form
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (parsedIndex >= 0) {
+    if (id) {
       setTasks((prevTasks) =>
-        prevTasks.map((t, i) => (i === parsedIndex ? task : t))
+        prevTasks.map((t) => (t.id === id ? task : t))
       );
     } else {
       setTasks((prevTasks) => [...prevTasks, task]);
     }
     setTask({
+      id: String(Date.now()),
       title: "",
       date: null,
       priority: "",
@@ -59,7 +63,7 @@ function AddTask() {
   return (
     <div className="m-5 mb-2">
       <div className={styles.header}>
-        <h4>{index ? "Update Task" : "Add New Task"}</h4>
+        <h4>{id ? "Update Task" : "Add New Task"}</h4>
         <Link to="/" className={styles.goBack}>
           <IoIosArrowBack size={20} />
           <span>Go Back</span>

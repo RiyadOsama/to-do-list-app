@@ -10,19 +10,20 @@ import TasksContext from "../context/TasksContext";
 
 function ViewTask() {
   const { tasks, setTasks } = useContext(TasksContext);
-  const { index } = useParams();
+  const { id } = useParams();
 
-  const taskIndex = parseInt(index, 10);
-  const task = tasks && tasks[taskIndex];
+  const task = tasks && tasks.find((t) => t.id === id);
 
   if (!task) {
     return (
-      <div className="m-5">
-        <h4>Task not found</h4>
-        <Link to="/" className={styles.goBack}>
-          <IoIosArrowBack size={20} />
-          <span>Go Back</span>
-        </Link>
+      <div className="m-5 mb-2">
+        <div className={styles.header}>
+          <h4>Task not found</h4>
+          <Link to="/" className={styles.goBack}>
+            <IoIosArrowBack size={20} />
+            <span>Go Back</span>
+          </Link>
+        </div>
       </div>
     );
   }
@@ -34,12 +35,21 @@ function ViewTask() {
       Completed: style.completed,
     }[task.status] || style.notStarted;
 
-  const handleStatus = (taskIndex, newStatus) => {
+  const nextStatus =
+    task.status === "Not Started"
+      ? "In Progress"
+      : task.status === "In Progress"
+      ? "Completed"
+      : "Not Started";
+
+  const handleStatus = (taskId, newStatus) => {
     setTasks((prevTasks) =>
-      prevTasks.map((t, i) =>
-        i === taskIndex ? { ...t, status: newStatus } : t
-      )
+      prevTasks.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t))
     );
+  };
+
+  const handleDelete = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((t) => t.id !== taskId));
   };
 
   const formattedPriority = task.priority
@@ -87,35 +97,24 @@ function ViewTask() {
             </div>
           </div>
           <div className="d-flex flex-column align-items-start align-items-md-start m-auto mt-5 gap-2">
-            <Link to={`/editTask/${index}`} className={style.icon}>
+            <Link to={`/editTask/${task.id}`} className={style.icon}>
               <FaEdit size={25} />
               <span>Edit</span>
             </Link>
-            <Link className={style.icon}>
+            <Link
+              className={style.icon}
+              onClick={() => handleDelete(task.id)}
+              to="/"
+            >
               <MdDelete size={25} />
               <span>Delete</span>
             </Link>
             <Link
               className={style.icon}
-              onClick={() =>
-                handleStatus(
-                  taskIndex,
-                  task.status === "Not Started"
-                    ? "In Progress"
-                    : task.status === "In Progress"
-                    ? "Completed"
-                    : "Not Started"
-                )
-              }
+              onClick={() => handleStatus(task.id, nextStatus)}
             >
               <IoMdDoneAll size={25} />
-              <span>
-                {task.status === "Not Started"
-                  ? "In_Progress"
-                  : task.status === "In Progress"
-                  ? "Completed"
-                  : "Not_Started"}
-              </span>
+              <span>{nextStatus.replace(" ", "_")}</span>
             </Link>
           </div>
         </div>

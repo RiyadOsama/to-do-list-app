@@ -12,16 +12,17 @@ import TasksContext from "../context/TasksContext";
 function Dashboard() {
   const { tasks, setTasks } = useContext(TasksContext);
 
-  const handleStatus = (taskIndex, newStatus) => {
+  const handleStatus = (taskId, newStatus) => {
     setTasks((prevTasks) =>
-      prevTasks.map((t, i) =>
-        i === taskIndex ? { ...t, status: newStatus } : t
-      )
+      prevTasks.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t))
     );
   };
 
-  const total = tasks.length || 1;
+  const handleDelete = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
 
+  const total = tasks.length || 1;
   const counts = {
     "Not Started": tasks.filter((t) => t.status === "Not Started").length,
     "In Progress": tasks.filter((t) => t.status === "In Progress").length,
@@ -55,13 +56,13 @@ function Dashboard() {
                   .filter((task) => task.status !== "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
                   .map((task) => {
-                    const originalIndex = tasks.indexOf(task);
                     return (
                       <TaskCard
-                        key={originalIndex}
+                        key={task.id}
+                        id={task.id}
                         task={task}
-                        index={originalIndex}
                         handleStatus={handleStatus}
+                        handleDelete={handleDelete}
                       />
                     );
                   })}
@@ -96,7 +97,7 @@ function Dashboard() {
           <div className={styles.child}>
             <div className={styles.cardTitle}>
               <BiTask size={30} />
-              <span>Completet Tasks</span>
+              <span>Completed Tasks</span>
             </div>
             <div style={{ overflow: "auto", height: "292px" }}>
               {tasks &&
@@ -104,13 +105,13 @@ function Dashboard() {
                   .filter((task) => task.status === "Completed")
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
                   .map((task) => {
-                    const originalIndex = tasks.indexOf(task);
                     return (
                       <TaskCard
-                        key={originalIndex}
+                        key={task.id}
+                        id={task.id}
                         task={task}
-                        index={originalIndex}
                         handleStatus={handleStatus}
+                        handleDelete={handleDelete}
                       />
                     );
                   })}

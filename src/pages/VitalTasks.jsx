@@ -8,12 +8,14 @@ import TasksContext from "../context/TasksContext";
 function VitalTasks() {
   const { tasks, setTasks } = useContext(TasksContext);
 
-  const handleStatus = (taskIndex, newStatus) => {
+  const handleStatus = (taskId, newStatus) => {
     setTasks((prevTasks) =>
-      prevTasks.map((t, i) =>
-        i === taskIndex ? { ...t, status: newStatus } : t
-      )
+      prevTasks.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t))
     );
+  };
+
+  const handleDelete = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
   return (
@@ -36,13 +38,13 @@ function VitalTasks() {
             .filter((task) => task.priority == "extreme")
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .map((task) => {
-              const originalIndex = tasks.indexOf(task);
               return (
                 <TaskCard
-                  key={originalIndex}
+                  key={task.id}
                   task={task}
-                  index={originalIndex}
+                  id={task.id}
                   handleStatus={handleStatus}
+                  handleDelete={handleDelete}
                 />
               );
             })}

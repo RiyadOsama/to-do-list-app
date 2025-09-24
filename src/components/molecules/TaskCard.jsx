@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { IoMdDoneAll } from "react-icons/io";
 
-function TaskCard({ task, index, handleStatus }) {
+function TaskCard({ task, id, handleStatus, handleDelete }) {
   const statusClass =
     {
       "Not Started": styles.notStarted,
@@ -54,15 +54,15 @@ function TaskCard({ task, index, handleStatus }) {
             "col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end m-auto"
           }
         >
-          <Link to={`/viewTask/${index}`} className={styles.icon}>
+          <Link to={`/viewTask/${id}`} className={styles.icon}>
             <FaRegEye size={25} />
             <span>View</span>
           </Link>
-          <Link to={`/editTask/${index}`} className={styles.icon}>
+          <Link to={`/editTask/${id}`} className={styles.icon}>
             <FaEdit size={25} />
             <span>Edit</span>
           </Link>
-          <Link className={styles.icon}>
+          <Link className={styles.icon} onClick={() => handleDelete(id)}>
             <MdDelete size={25} />
             <span>Delete</span>
           </Link>
@@ -70,7 +70,7 @@ function TaskCard({ task, index, handleStatus }) {
             className={styles.icon}
             onClick={() =>
               handleStatus(
-                index,
+                id,
                 task.status === "Not Started"
                   ? "In Progress"
                   : task.status === "In Progress"
