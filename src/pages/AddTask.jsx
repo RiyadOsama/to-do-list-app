@@ -32,7 +32,7 @@ function AddTask() {
     date: null,
     priority: "",
     description: "",
-    status: "Not Started",
+    status: "",
   });
 
   const handleChange = (e) => {
